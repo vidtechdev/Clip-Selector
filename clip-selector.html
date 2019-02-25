@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Video Clip Selector Tool</title>
+<link rel="stylesheet" type="text/css" href="clip-selector.css">
+
+</head>
+
+<body>
+
+    <div class="player" aria-label="video player">
+
+        <video controls>
+            <source src="video/sintel-short.mp4" type="video/mp4">
+            <source src="video/sintel-short.mp4" type="video/webm">
+            <!-- fallback content here -->
+        </video>
+
+        <div class="controls">
+            <button class="play" aria-label="play pause toggle">P</button>
+            <button class="stop" aria-label="stop reset playback">S</button>
+
+            <div class="timer">
+                <div></div>
+                <span aria-label="timer">00:00</span>
+            </div>
+
+            <button class="cc" aria-label="closed captions">CC</button>
+            <button class="slower" aria-label="slower playback speed">&lt&lt </button>
+            <button class="faster" aria-label="faster playback speed">&gt&gt </button>
+
+        </div>
+
+        <div class="set-clip">
+        	<button id="setIn" label="Set In" aria-label="set clip in timecode">START</button>
+        	<button id="setOut" label="Set Out" aria-label="set clip out timecode">END</button>
+        </div>
+
+        <div class="show-time">
+            <h1 class="display-in" aria-label="selected clip in timecode in seconds">Start: </h1>
+            <h1 class="display-out" aria-label="selected clip out timecode in seconds">End: </h1>
+        </div>
+
+<!--
+TURN .SCRUBBER INTO A CLICKABLE VISUAL REPRESENTATION OF THE CLIP
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Video_and_audio_APIs
+..find out the X and Y values of the element's left/right and top/bottom sides via the getBoundingClientRect() method, and you can find the coordinates of a mouse click via the event object of the click event, called on the Document object.
+
+
+
+-->
+        <p class="progress"><span> </span> % Complete</p>
+        <div class="scrubber">
+        	<div class="handle" id="in"></div>
+            <div class="cti"></div>
+            <div class="handle" id="out"></div>
+            <div class="seeker"></div>
+            <span></span>
+        </div>
+
+   </div>
+
+
+
+</body>
+
+<script src="clip-selector.js"></script>
+</body>
+</html>
